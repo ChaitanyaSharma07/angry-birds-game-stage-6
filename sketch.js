@@ -1,3 +1,5 @@
+var gameState = "onsling";
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -69,12 +71,14 @@ function draw(){
 }
 
 function mouseDragged(){
+if (gameState != "launch"){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
 }
-
+}
 
 function mouseReleased(){
     slingshot.fly();
+    gameState = "launch";
 }
 
 function keyPressed(){
